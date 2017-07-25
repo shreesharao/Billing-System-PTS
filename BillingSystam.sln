@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystam", "BillingSystam\BillingSystam.csproj", "{8298CDD9-A1C5-46C2-B3A2-B64C5FC1344D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataTier", "DataTier", "{5A862F02-6F5A-4A85-9A69-F58109877F95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessTier", "BusinessTier", "{7F1BA960-E2D9-40FE-8401-0AAD1B147A7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationTier", "PresentationTier", "{EDBA6D0A-A61A-49C7-A468-7EBEE08241F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{4D03D6D3-E66F-4C45-902E-B3DAC1E9ECDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{C76629A2-4BD8-4638-955D-801B6E01DCF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Entities", "BillingSystem.Entities\BillingSystem.Entities.csproj", "{E3BECF61-E8E8-4671-BD1A-09EA7D4A1C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Data", "BillingSystem.Data\BillingSystem.Data.csproj", "{B97D38F9-1693-419D-987D-BD1F3128CD52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Business", "BillingSystem.Business\BillingSystem.Business.csproj", "{BD893427-09F4-4983-9E14-9E0B2C4F5E80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Utility", "BillingSystem.Utility\BillingSystem.Utility.csproj", "{2A010689-F8A3-48ED-A2C2-7CA8BB661251}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8298CDD9-A1C5-46C2-B3A2-B64C5FC1344D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8298CDD9-A1C5-46C2-B3A2-B64C5FC1344D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8298CDD9-A1C5-46C2-B3A2-B64C5FC1344D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8298CDD9-A1C5-46C2-B3A2-B64C5FC1344D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3BECF61-E8E8-4671-BD1A-09EA7D4A1C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3BECF61-E8E8-4671-BD1A-09EA7D4A1C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3BECF61-E8E8-4671-BD1A-09EA7D4A1C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3BECF61-E8E8-4671-BD1A-09EA7D4A1C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97D38F9-1693-419D-987D-BD1F3128CD52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97D38F9-1693-419D-987D-BD1F3128CD52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97D38F9-1693-419D-987D-BD1F3128CD52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97D38F9-1693-419D-987D-BD1F3128CD52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD893427-09F4-4983-9E14-9E0B2C4F5E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD893427-09F4-4983-9E14-9E0B2C4F5E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD893427-09F4-4983-9E14-9E0B2C4F5E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD893427-09F4-4983-9E14-9E0B2C4F5E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A010689-F8A3-48ED-A2C2-7CA8BB661251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A010689-F8A3-48ED-A2C2-7CA8BB661251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A010689-F8A3-48ED-A2C2-7CA8BB661251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A010689-F8A3-48ED-A2C2-7CA8BB661251}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8298CDD9-A1C5-46C2-B3A2-B64C5FC1344D} = {EDBA6D0A-A61A-49C7-A468-7EBEE08241F1}
+		{B97D38F9-1693-419D-987D-BD1F3128CD52} = {5A862F02-6F5A-4A85-9A69-F58109877F95}
+		{BD893427-09F4-4983-9E14-9E0B2C4F5E80} = {7F1BA960-E2D9-40FE-8401-0AAD1B147A7F}
+		{2A010689-F8A3-48ED-A2C2-7CA8BB661251} = {4D03D6D3-E66F-4C45-902E-B3DAC1E9ECDA}
+		{E3BECF61-E8E8-4671-BD1A-09EA7D4A1C27} = {C76629A2-4BD8-4638-955D-801B6E01DCF1}
+	EndGlobalSection
+EndGlobal

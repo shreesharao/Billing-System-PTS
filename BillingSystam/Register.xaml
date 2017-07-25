@@ -1,0 +1,69 @@
+﻿<Window x:Class="BillingSystam.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Register" Height="400" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Name="styleTxt" TargetType="TextBox">
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Background" Value="Honeydew" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,10,0,0" />
+        </Style>
+        <Style x:Name="stylePwd" TargetType="PasswordBox">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Background" Value="Honeydew" />
+            <Setter Property="Margin" Value="0,10,0,0" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="10,10,0,0"></Setter>
+            <Setter Property="FontFamily" Value="Calibri" />
+        </Style>
+    </Window.Resources>
+    <Grid Background="LightGray">
+        <Border CornerRadius="10,10,10,10"  BorderThickness="2" Background="LightCyan" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Width="300" Height="200" Margin="3" Background="LightCyan" VerticalAlignment="Center">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="105*"></ColumnDefinition>
+                <ColumnDefinition Width="100*" ></ColumnDefinition>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--Header-->
+            <TextBlock Text="Register" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="30" FontStyle="Italic" FontFamily="Calibri" Margin="102,0,0,0" Width="98" />
+
+                <!--User name-->
+            <Label Content="User Name:" Grid.Row="1" Grid.Column="0"></Label>
+            <TextBox Name="txtUserName" MaxLength="19"  ToolTip="Enter user name" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="Auto" Margin="1,15,92,5" />
+                <Label Name="lblInvalidUser" ToolTip="User name can not be empty" Grid.Row="1" Grid.Column="2" Foreground="Red" Visibility="Hidden" Template="{StaticResource ErrorTemplate}"></Label>
+                <!--password-->
+            <Label Content="Password:"  Grid.Row="2" Grid.Column="0" ></Label>
+            <PasswordBox Name="txtPassword"  PasswordChar="*"  ToolTip="Enter password" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="Auto" Margin="1,15,92,5"/>
+                <Label Name="lblInvalidPassword" ToolTip="Password can not be empty" Grid.Row="2" Grid.Column="2" Foreground="Red" Visibility="Hidden" Template="{StaticResource ErrorTemplate}"></Label>
+                <!--confirm password-->
+            <Label Content="Cofirm Password:"  Grid.Row="3" Grid.Column="0" ></Label>
+            <PasswordBox Name="txtConPassword" MaxLength="19"  PasswordChar="*"  ToolTip="confirm password" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Height="Auto" Margin="1,15,92,5"/>
+                <Label Name="lblInvalidConPassword" ToolTip="Confirm Password can not be empty" Grid.Row="3" Grid.Column="2" Foreground="Red" Visibility="Hidden" Template="{StaticResource ErrorTemplate}"></Label>
+                <!--button register and login button to go back to login window-->
+            <Button Name="btnRegister" Content="Register" Grid.Row="4" Grid.Column="1" Click="btnRegister_Click_1" Margin="21,8"/>
+                <Button Name="btnLogin" Content="Login-->" Grid.Row="4" Grid.Column="2" Click="btnLogin_Click_1" Margin="20,8"/>
+
+
+
+
+
+            </Grid>
+        </Border>
+        
+    </Grid>
+</Window>

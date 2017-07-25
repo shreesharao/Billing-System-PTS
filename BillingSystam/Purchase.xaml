@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="BillingSystam.Purchase"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400" BorderBrush="Black" BorderThickness="1" >
+   
+    <UserControl.Resources>
+        
+        <Style x:Name="styleTxt" TargetType="TextBox" BasedOn="{StaticResource CommonStyle}">
+            <Setter Property="Background" Value="Honeydew" />
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Name="styleCmb" TargetType="ComboBox" BasedOn="{StaticResource CommonStyle}">
+             <Setter Property="Background" Value="Honeydew" />
+        </Style>
+        <Style x:Name="styleTextBlock" TargetType="TextBlock" BasedOn="{StaticResource CommonStyle}">
+            <Setter Property="Background" Value="Honeydew" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="10,20,0,0"></Setter>
+            <Setter Property="FontFamily" Value="Calibri" />
+        </Style>
+
+        <ControlTemplate x:Key="ValidationErrorTemplate">
+            <DockPanel>
+           
+            <Grid Width="15" Height="15" HorizontalAlignment="Left" DockPanel.Dock="Right">
+                <Ellipse Width="15" Height="15" Fill="Red"
+                                             HorizontalAlignment="Left" VerticalAlignment="Center"></Ellipse>
+                <TextBlock Foreground="white" FontWeight="Bold" FontSize="10"  HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               TextAlignment="Center" ToolTip="{Binding ElementName=ErrorAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">X</TextBlock>
+            </Grid>
+                <AdornedElementPlaceholder x:Name="ErrorAdorner"></AdornedElementPlaceholder>
+            </DockPanel>
+        </ControlTemplate>
+
+    </UserControl.Resources>
+
+    <Border Name="gridInStock"  CornerRadius="10,10,10,10" Margin="10,10,10,10"  BorderThickness="1" Background="LightCyan" BorderBrush="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Background="LightCyan" Margin="10,0,0,10">
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*" ></ColumnDefinition>
+            <ColumnDefinition Width="150*" ></ColumnDefinition>
+            <ColumnDefinition Width="100*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Header-->
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="15" FontStyle="Italic" Background="LightCyan" Width="200">Welcome to purchase window</TextBlock>
+                    
+            <!--button close-->
+            <Button Name="btnClose" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="15" Background="Bisque" Foreground="Black" Click="btnClose_Click_1">X</Button>
+<!--seller details-->
+        <Label Content="Purchased From:" Grid.Row="1" Grid.Column="0"></Label>
+        <ComboBox Name="cmbSeller" Grid.Row="1" Grid.Column="1"    Background="Honeydew" HorizontalAlignment="Stretch"  Text="{Binding Path=PurchaserName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></ComboBox>
+        <Button Name="btnAddSeller" Content="Add" Grid.Row="1" Grid.Column="2" Width="50" Height="20" Margin="10,10,0,0" Click="btnAddSeller_Click_1"></Button>
+            <!--item type-->
+        <Label Content="Item Type:" Grid.Row="2" Grid.Column="0"></Label>
+        <ComboBox Name="cmbItem" Grid.Row="2" Grid.Column="1"  IsEditable="False" Background="Honeydew" Text="{Binding Path=ItemType, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></ComboBox>
+        <Button Name="btnAddItem" Content="Add" Grid.Row="2" Grid.Column="2"  Width="50" Height="20" Margin="10,10,0,0" Click="btnAddItem_Click_1"></Button>
+
+            <!--serial number entered by user-->
+            <Label Content="Item:" Grid.Row="3" Grid.Column="0"></Label>
+            <TextBox Name="txtItem" ToolTip="Enter Item Name" MaxLength="49" Grid.Row="3" Grid.Column="1" Text="{Binding Path=Itemname, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>
+
+
+            <!--serial number entered by user-->
+        <Label Content="Serial Number:" Grid.Row="4" Grid.Column="0"></Label>
+        <TextBox Name="txtSerailNum" ToolTip="Enter serial number" MaxLength="49" Grid.Row="4" Grid.Column="1" LostFocus="txtSerailNum_LostFocus" Text="{Binding Path=SerialNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>
+            <!--Unique identifier number generated by system-->
+        <Label Content="PTS Number:" Grid.Row="5" Grid.Column="0"></Label>
+        <TextBlock Name="txtUnique"  Grid.Row="5" Grid.Column="1"   Background="Honeydew" />
+<!--item price-->
+        <Label Content="Price:" Grid.Row="6" Grid.Column="0"></Label>
+        <TextBox Name="txtPrice"  Grid.Row="6" Grid.Column="1" MaxLength="19" Text="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>
+            <!--Purchased Date-->
+        <!--<Label Content="Purchased Date:" Grid.Row="6" Grid.Column="0"></Label>
+        <DatePicker Name="DatePicker" Grid.Row="6" Grid.Column="1" Background="Honeydew" Width="100" Height="20"></DatePicker>-->
+  <!--button add details-->
+        <Button Name="btnAddPurchaseDetail" Content="Add Detail" Grid.Row="7" Grid.Column="1" Height="20" Width="100" Click="btnAddPurchaseDetail_Click_1" ></Button>
+    </Grid>
+    </Border>
+</UserControl>

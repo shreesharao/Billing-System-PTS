@@ -1,0 +1,40 @@
+﻿<Window x:Class="BillingSystam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Main" Height="600" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" >
+    
+        <Window.Resources>
+        <Style TargetType="MenuItem">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Bisque"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+        <DockPanel>
+        <Menu   DockPanel.Dock="Top" HorizontalAlignment="Stretch">
+                     
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"></DockPanel>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Name="MenuPurchase" Header="Purchase" Click="MenuPurchase_Click_1"></MenuItem>
+            <MenuItem Name="MenuSale" Header="Sale" Click="MenuSale_Click_1"></MenuItem>
+            <MenuItem Name="MenuSearch" Header="Search" Click="MenuSearch_Click_1"></MenuItem>
+            <!--<MenuItem Name="MenuAdd" Header="Add" Click="MenuAdd_Click_1"></MenuItem>-->
+            <MenuItem Name="MenuLogOut" Header="LogOut" HorizontalAlignment="Right" Click="MenuLogOut_Click_1"></MenuItem>
+        </Menu>
+       
+            <TabControl Name="tabChildContainer"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabControl.Background>
+                <ImageBrush ImageSource="Images\logo PTS new.jpg" ></ImageBrush>
+            </TabControl.Background>
+        </TabControl>
+
+
+
+    </DockPanel>
+</Window>
