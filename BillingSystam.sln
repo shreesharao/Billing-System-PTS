@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystam", "BillingSystam\BillingSystam.csproj", "{8298CDD9-A1C5-46C2-B3A2-B64C5FC1344D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataTier", "DataTier", "{5A862F02-6F5A-4A85-9A69-F58109877F95}"
@@ -20,6 +22,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Business", "BillingSystem.Business\BillingSystem.Business.csproj", "{BD893427-09F4-4983-9E14-9E0B2C4F5E80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Utility", "BillingSystem.Utility\BillingSystem.Utility.csproj", "{2A010689-F8A3-48ED-A2C2-7CA8BB661251}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{60239056-DF1C-4552-A6B6-7A857D687838}"
+	ProjectSection(SolutionItems) = preProject
+		..\Database\BillingSystem.sqlite = ..\Database\BillingSystem.sqlite
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
