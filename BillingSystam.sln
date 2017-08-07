@@ -23,11 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Business", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem.Utility", "BillingSystem.Utility\BillingSystem.Utility.csproj", "{2A010689-F8A3-48ED-A2C2-7CA8BB661251}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{60239056-DF1C-4552-A6B6-7A857D687838}"
-	ProjectSection(SolutionItems) = preProject
-		..\Database\BillingSystem.sqlite = ..\Database\BillingSystem.sqlite
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

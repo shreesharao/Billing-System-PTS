@@ -33,7 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite">
-      <HintPath>D:\System.Data.SQLite_DLL\System.Data.SQLite.dll</HintPath>
+      <HintPath>..\..\..\Billing System\BillingSystem\BillingSystem\bin\Debug\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
