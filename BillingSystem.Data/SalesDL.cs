@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BillingSystem.Data
 {
-  public class SalesDL
+    public class SalesDL
     {
         string result = string.Empty;
         SQLiteHelper objSQLiteHelper = new SQLiteHelper();
@@ -36,10 +36,10 @@ namespace BillingSystem.Data
                     string deletequery = "update TB_ItemInStcok SET ISDELETED=1 where UNIQUENUMBER in (" + entity.UniqueNum + ")";
 
                     string query = "insert into TB_SoldItems(INVOICENUM,INVOCENUMWITHYEAR,BUYER,ADDRESS,SERIALNUMBER,UNIQUENUMBER,";
-                    query = query + "PRICE,SDATE,VAT) values (" + entity.InvoiceNumber + ",'" + entity.InvoiceNumWithYear + "','" + entity.Buyer + "','" + entity.Address + "','" + entity.SerialNumber + "','";
-                    query = query + entity.UniqueNum.Replace("'","") + "','" + entity.Price + "','" + entity.Date + "','" + entity.Vat + "');";
+                    query = query + "PRICE,SDATE,CGST,SGST) values (" + entity.InvoiceNumber + ",'" + entity.InvoiceNumWithYear + "','" + entity.Buyer + "','" + entity.Address + "','" + entity.SerialNumber + "','";
+                    query = query + entity.UniqueNum.Replace("'", "") + "','" + entity.Price + "','" + entity.Date + "','" + entity.CGST + "','" + entity.SGST + "');";
 
-                    
+
                     int result = objSQLiteHelper.ExecuteNonQuery(query);
                     result = objSQLiteHelper.ExecuteNonQuery(deletequery);
                     if (result > 0)
@@ -52,15 +52,15 @@ namespace BillingSystem.Data
                     }
 
                 }
-               
+
             }
             catch (Exception)
             {
 
-                
+
                 throw;
             }
-            
+
             return isSucess;
 
         }
@@ -82,11 +82,11 @@ namespace BillingSystem.Data
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-           
-                return result;
+
+            return result;
         }
 
         public Dictionary<int, string> GetItemTypes()
@@ -102,7 +102,7 @@ namespace BillingSystem.Data
                 {
                     lstItemtypes.Add(Convert.ToInt32(row[0]), row[1].ToString());
                 }
-                lstItemtypes.Add(0,"Select");
+                lstItemtypes.Add(0, "Select");
 
             }
             catch (Exception ex)
@@ -117,7 +117,7 @@ namespace BillingSystem.Data
         public List<SalesEntity> GetItems(string itemType)
         {
             List<SalesEntity> lstSalesEntity = new List<SalesEntity>();
-            
+
 
             try
             {
@@ -139,11 +139,11 @@ namespace BillingSystem.Data
                         lstSalesEntity.Add(objSalesEntity);
 
                     }
-                } 
+                }
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
             return lstSalesEntity;

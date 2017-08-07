@@ -157,7 +157,10 @@ namespace BillingSystam
                         //  objSalesEntity.UniqueNum = txtUniqueNum.Text.Trim();
                         //  objSalesEntity.SerialNumber = txtSerialNum.Text.Trim();
                         objSalesEntity.Price = txtPrice.Text.Trim();
-                        objSalesEntity.Vat = txtVAT.Text.Trim();
+                        //objSalesEntity.Vat = txtVAT.Text.Trim();
+                        objSalesEntity.CGST = txtCGST.Text.Trim();
+                        objSalesEntity.SGST = txtSGST.Text.Trim();
+
                         lstSalesEntity.Add(objSalesEntity);
                         MessageBox.Show("Item added successfully to the list", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -166,7 +169,9 @@ namespace BillingSystam
                     
                         txtBuyer.IsEnabled = false;
                         txtAddress.IsEnabled = false;
-                        txtVAT.IsEnabled = false;
+                        //txtVAT.IsEnabled = false;
+                        txtCGST.IsEnabled = false;
+                        txtSGST.IsEnabled = false;
                         txtDelNote.IsEnabled = false;
                         btnPrintInvoice.IsEnabled = true;
                     }

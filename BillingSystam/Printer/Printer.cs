@@ -169,7 +169,7 @@ namespace BillingSystam.Printer
 
                tableLayout.Append("<tr><td>");
                tableLayout.Append("<table width='100%' class='tableUpper'");
-               tableLayout.Append("<tr width=\"100%\"><td style='border-bottom:1px solid black;' width=\"40%\"><b>M/s Pruthvi Total Solutions </b><br />opp MGN Traders new<br />BH Road Sagara-577401<br/>PH:9901601354,08183229229 </td><td width='60%' rowspan ='2'>");
+               tableLayout.Append("<tr width=\"100%\"><td style='border-bottom:1px solid black;' width=\"40%\"><b>M/s Pruthvi Total Solutions </b><br />opp MGN Traders new<br/>BH Road Sagara-577401<br/>PH:9901601354,08183229229<br/>GSTIN/UAN:29DZBPS0430P1ZX </td><td width='60%' rowspan ='2'>");
 
                tableLayout.Append(tableInvoiceNumAndOthers.ToString());
 

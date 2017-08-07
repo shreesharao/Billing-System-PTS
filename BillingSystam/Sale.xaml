@@ -64,6 +64,7 @@
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
 
 
                 </Grid.RowDefinitions>
@@ -122,15 +123,26 @@
                 <Label Content="Price:" Grid.Row="5" Grid.Column="0"></Label>
                 <TextBox Name="txtPrice"  Grid.Row="5" Grid.Column="1" MaxLength="19" Text="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>
                 <!--VAT-->
-                <Label Content="VAT %" Grid.Row="6" Grid.Column="0"></Label>
-                <TextBox Name="txtVAT"  Grid.Row="6" Grid.Column="1" MaxLength="19" Text="{Binding Path=Vat, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>
+                <!--<Label Content="VAT %" Grid.Row="6" Grid.Column="0"></Label>
+                <TextBox Name="txtVAT"  Grid.Row="6" Grid.Column="1" MaxLength="19" Text="{Binding Path=Vat, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>-->
+                
+                <!--CGST-->
+                <Label Content="CGST %" Grid.Row="6" Grid.Column="0"></Label>
+                <TextBox Name="txtCGST"  Grid.Row="6" Grid.Column="1" MaxLength="19" Text="{Binding Path=CGST, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>
+
+
+                <!--SGST-->
+                <Label Content="SGST %" Grid.Row="7" Grid.Column="0"></Label>
+                <TextBox Name="txtSGST"  Grid.Row="7" Grid.Column="1" MaxLength="19" Text="{Binding Path=SGST, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationErrorTemplate}" Validation.Error="Validation_Error"></TextBox>
+
+
                 <!--textbox delivery note-->
-                <Label Content="Delivery Note:" Grid.Row="7" Grid.Column="0"></Label>
-                <TextBox Name="txtDelNote"  Margin="92,0,0,0" MaxLength="149" MinLines="3" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="7" Grid.Column="1"  ToolTip="Enter Address" Height="30" Width="250" Grid.ColumnSpan="2" HorizontalAlignment="Left"  VerticalContentAlignment="Top"/>
+                <Label Content="Delivery Note:" Grid.Row="8" Grid.Column="0"></Label>
+                <TextBox Name="txtDelNote"  Margin="92,0,0,0" MaxLength="149" MinLines="3" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="8" Grid.Column="1"  ToolTip="Enter Address" Height="30" Width="250" Grid.ColumnSpan="2" HorizontalAlignment="Left"  VerticalContentAlignment="Top"/>
 
                 <!--button add details-->
-                <Button Name="btnAddAnotherItem" Content="Add Another Item" Grid.Row="8" Grid.Column="1" Height="20" Width="100" Click="btnAddAnotherItem_Click_1" ></Button>
-                <Button Name="btnPrintInvoice" Content="Print Invoice" IsEnabled="False" Grid.Row="8" Grid.Column="2" Height="20" Width="100" Click="btnPrintInvoice_Click_1"></Button>
+                <Button Name="btnAddAnotherItem" Content="Add Another Item" Grid.Row="9" Grid.Column="1" Height="20" Width="100" Click="btnAddAnotherItem_Click_1" ></Button>
+                <Button Name="btnPrintInvoice" Content="Print Invoice" IsEnabled="False" Grid.Row="9" Grid.Column="2" Height="20" Width="100" Click="btnPrintInvoice_Click_1"></Button>
             </Grid>
         </ScrollViewer>
     </Border>

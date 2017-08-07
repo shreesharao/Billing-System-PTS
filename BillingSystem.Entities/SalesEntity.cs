@@ -69,6 +69,23 @@ namespace BillingSystem.Entities
             get { return vat; }
             set { vat = value; }
         }
+
+        private string cgst;
+
+        public string CGST
+        {
+            get { return cgst; }
+            set { cgst = value; }
+        }
+
+        private string sgst;
+
+        public string SGST
+        {
+            get { return sgst; }
+            set { sgst = value; }
+        }
+
         private string date;
 
         public string Date
@@ -158,6 +175,29 @@ namespace BillingSystem.Entities
                             result = "VAT can only be in digits";
                         }
                         break;
+
+                    case "CGST":
+                        if (string.IsNullOrEmpty(CGST))
+                        {
+                            result = "CGST can not be empty";
+                        }
+                        else if (objRegex.IsMatch(CGST))
+                        {
+                            result = "CGST can only be in digits";
+                        }
+                        break;
+
+                    case "SGST":
+                        if (string.IsNullOrEmpty(SGST))
+                        {
+                            result = "SGST can not be empty";
+                        }
+                        else if (objRegex.IsMatch(SGST))
+                        {
+                            result = "SGST can only be in digits";
+                        }
+                        break;
+
                 }
                 return result;
             }
