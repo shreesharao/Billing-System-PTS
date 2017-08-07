@@ -60,25 +60,30 @@ namespace BillingSystam.Printer
            int totalAmount = 0;
            int i = 0;
            string vat=string.Empty;
+           double CGST = 0;
+           double SGST = 0;
            string invoiceNumber=string.Empty;
            string deliveryNote=string.Empty;
            string buyer=string.Empty;
            string adress = string.Empty;
            double grandTotal = 0;
            
-           double vatAmount = 0;
+          // double vatAmount = 0;
+           double taxAmount = 0;
            StringBuilder tableLayout = new StringBuilder();
            try
            {
                StringBuilder tableItemAndRate = new StringBuilder();
 
                tableItemAndRate.Append("<table width ='100%' class='tableItemAndRate'>");
-               tableItemAndRate.Append("<tr><td>Sl No.</td><td>Description of goods</td><td>VAT%</td><td>Quantity</td><td>Rate</td><td>Per</td><td>Disc%</td><td style='border-right-style:none;'>Amount</td></tr>");
+               tableItemAndRate.Append("<tr><td>Sl No.</td><td>Description of goods</td><td>CGST%</td><td>SGST%</td><td>Quantity</td><td>Rate</td><td>Per</td><td>Disc%</td><td style='border-right-style:none;'>Amount</td></tr>");
 
                foreach (SalesEntity entity in lstentity)
                {
                    totalAmount = totalAmount + (System.Convert.ToInt32(entity.Price) * entity.Count);
-                   vat = entity.Vat;
+                 //  vat = entity.Vat;
+                   CGST = Convert.ToDouble(entity.CGST);
+                   SGST = Convert.ToDouble(entity.SGST);
                    invoiceNumber = entity.InvoiceNumWithYear;
                    deliveryNote=entity.DelNote;
                    buyer = entity.Buyer;
@@ -90,7 +95,9 @@ namespace BillingSystam.Printer
                    tableItemAndRate.Append("<tr class='tdNoBorder'>");
                    tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", i.ToString(), "</td>"));
                    tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", entity.SerialItemName, "</td>"));
-                   tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", ((i>1==true)? "":(entity.Vat+"%")), "</td>"));
+                   //tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", ((i>1==true)? "":(entity.Vat+"%")), "</td>"));
+                   tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", ((i > 1 == true) ? "" : (entity.CGST + "%")), "</td>"));
+                   tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", ((i > 1 == true) ? "" : (entity.SGST + "%")), "</td>"));
                    tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", entity.Count, "</td>"));
                    tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", entity.Price, "</td>"));
                    tableItemAndRate.Append(string.Format("{0}{1}{2}", "<td>", entity.Price, "</td>"));
@@ -100,14 +107,14 @@ namespace BillingSystam.Printer
 
 
                }
-               vatAmount = System.Convert.ToDouble(totalAmount) *(System.Convert.ToDouble(vat)/100);
-               grandTotal = System.Convert.ToDouble(totalAmount) + vatAmount;
+               taxAmount = System.Convert.ToDouble(totalAmount) *(System.Convert.ToDouble((CGST+SGST))/100);
+               grandTotal = System.Convert.ToDouble(totalAmount) + taxAmount;
 
-               vatAmount=Math.Round(vatAmount, 2);
+               taxAmount = Math.Round(taxAmount, 2);
                grandTotal = Math.Round(grandTotal, 2);
 
-               tableItemAndRate.Append(string.Format("{0}{1}{2}{3}", "<tr><td>&nbsp;</td><td><b>Output VAT @", vat, "%</b></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td style='border-right-style:none;'>", vatAmount, "</td></tr>"));
-               tableItemAndRate.Append(string.Format("{0}{1}{2}{3}", "<tr><td>&nbsp;</td><td>Total</td><td>&nbsp;</td><td>", (i), "</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td style='border-right-style:none;'>", grandTotal.ToString(), "</td></tr>"));
+               tableItemAndRate.Append(string.Format("{0}{1}{2}{3}", "<tr><td>&nbsp;</td><td><b>Output Tax @", (CGST + SGST), "%</b></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td></td><td style='border-right-style:none;'>", taxAmount, "</td></tr>"));
+               tableItemAndRate.Append(string.Format("{0}{1}{2}{3}", "<tr><td>&nbsp;</td><td>Total</td><td>&nbsp;</td><td></td><td>", (i), "</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td style='border-right-style:none;'>", grandTotal.ToString(), "</td></tr>"));
 
                tableItemAndRate.Append("</table>");
 
@@ -130,9 +137,9 @@ namespace BillingSystam.Printer
 
                tableAmountInWords.Append("<table width ='100%' class='tableAmountInWords'>");
                tableAmountInWords.Append("<tr><td>Amount chargable(in words)</td><td>&nbsp;</td><td>&nbsp;</td><td style='text-align:right'>E&amp;O.E</td></tr>");
-               tableAmountInWords.Append(string.Format("{0}{1}{2}", "<tr><td><b>INR ", NumberToWords(System.Convert.ToInt32(grandTotal)), "</b></td><td>VAT%</td><td>Assessable Value</td><td>VAT Amount</td></tr>"));
-               tableAmountInWords.Append("<tr><td>VAT Amount(in words)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>");
-               tableAmountInWords.Append(string.Format("{0}{1}{2}", "<tr><td><b>INR ", NumberToWords(System.Convert.ToInt32(vatAmount)), "</b></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>"));
+               tableAmountInWords.Append(string.Format("{0}{1}{2}", "<tr><td><b>INR ", NumberToWords(System.Convert.ToInt32(grandTotal)), "</b></td><td>Tax%</td><td>Assessable Value</td><td>Tax Amount</td></tr>"));
+               tableAmountInWords.Append("<tr><td>Tax Amount(in words)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>");
+               tableAmountInWords.Append(string.Format("{0}{1}{2}", "<tr><td><b>INR ", NumberToWords(System.Convert.ToInt32(taxAmount)), "</b></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>"));
                tableAmountInWords.Append("</table>");
 
 
@@ -143,8 +150,8 @@ namespace BillingSystam.Printer
                tableBankAndDeclaration.Append("<table width ='100%' class='tableBankAndDeclaration'>");
                tableBankAndDeclaration.Append("<tr><td>&nbsp;</td><td>&nbsp;</td><td colspan='2'>Company&#39;s Bank Details</td><td>&nbsp;</td></tr>");
                tableBankAndDeclaration.Append("<tr><td>&nbsp;</td><td>&nbsp;</td><td>Bank Name:</td><td><b>Corporation Bank</b></td></tr>");
-               tableBankAndDeclaration.Append("<tr><td style='width:200px'>Company&#39;s VAT TIN</td><td><b>:29291236360</b></td><td>A/C No.:</td><td><b>NEFT:214201601000077</b></td></tr>");
-               tableBankAndDeclaration.Append("<tr><td style='width:200px'>Company&#39;s PAN</td><td><b>:</b></td><td>Branch &amp; IFS Code:</td><td><b>Market Road Sagara&amp; CORP0002142</b></td></tr>");
+               tableBankAndDeclaration.Append("<tr><td style='width:200px'>Company&#39;s GSTIN/UAN</td><td><b>:29DZBPS0430P1ZX </b></td><td>A/C No.:</td><td><b>NEFT:560371000106880</b></td></tr>");
+               tableBankAndDeclaration.Append("<tr><td style='width:200px'>Company&#39;s PAN</td><td><b>:</b></td><td>Branch &amp; IFS Code:</td><td><b>BH road sagara&amp; CORP0002142</b></td></tr>");
                tableBankAndDeclaration.Append("<tr><td colspan ='2' > Declaration:<br />We declare that this invoice shows the actual price of the gooods described and that all particulars are true and correct.</td><td style='border-left:1px solid black;border-top:1px solid black;text-align:right;border-right-style:none' colspan ='2'> For <b>M/s Pruthvi Total Solutions</b><br /><br />Authorised sigantory</td></tr>");
                tableBankAndDeclaration.Append("</table>");
 
