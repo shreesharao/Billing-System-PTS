@@ -13,7 +13,7 @@ namespace BillingSystem.Data
 {
     public class SQLiteHelper
     {
-        private static string databaseDirectory = @"D:\BillingSystem\Database";
+        private static string databaseDirectory = @"Database";
         private static string databaseFile = "BillingSystem.sqlite";
         SQLiteConnection objSQLiteConnection = null;
 
